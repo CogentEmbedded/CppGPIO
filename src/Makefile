@@ -20,8 +20,6 @@ HDRS         := $(HDRS:./%=%)
 OBJS         := $(SRCS:.cpp=.o)
 
 CXXFLAGS     += -Wall -O2 -fPIC -std=c++11 -pthread -I $(includeprefix)
-
-LDFLAGS      +=
 LDLIBS       +=
 
 

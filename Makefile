@@ -34,7 +34,6 @@ libnamesover := $(libnameso).1
 libnamesoverx:= $(libnameso).1.0.0
 
 CXXFLAGS     += -Wall -O2 -std=c++11 -pthread
-LDFLAGS      +=
 LDLIBS       += -lpthread -lcppgpio
 
 SUBDIRS      := $(sourceprefix)
