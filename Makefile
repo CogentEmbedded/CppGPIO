@@ -2,9 +2,9 @@
 appname      := demo
 
 PREFIX       := /usr
-HEADERINST   := $(PREFIX)/include/cppgpio
-CHEADERINST  := $(PREFIX)/include
-LIBINST      := $(PREFIX)/lib
+HEADERINST   := $(DESTDIR)$(PREFIX)/include/cppgpio
+CHEADERINST  := $(DESTDIR)$(PREFIX)/include
+LIBINST      := $(DESTDIR)$(PREFIX)/lib
 
 LIBTOOL      := ar rucs
 MKDIR        := mkdir -p
