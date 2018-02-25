@@ -1,13 +1,13 @@
 
-LIBTOOL      := ar rucs
+LIBTOOL      := $(AR) rucs
 MKDIR        := mkdir -p
 CP           := cp
 CD           := cd
 CHOWN	     := chown
 CHMOD        := chmod
 LN           := ln -sf
-RM           := rm -f
-RMDIR        := rm -rf
+RM           := $(RM) -f
+RMDIR        := $(RM) -rf
 MAKE         := make
 
 sourceprefix := ./
@@ -19,11 +19,10 @@ HDRS         := $(shell find $(headerprefix) -maxdepth 1 -name "*.hpp")
 HDRS         := $(HDRS:./%=%)
 OBJS         := $(SRCS:.cpp=.o)
 
-CXX          := g++
-CXXFLAGS     := -Wall -O2 -fPIC -std=c++11 -pthread -I $(includeprefix)
+CXXFLAGS     += -Wall -O2 -fPIC -std=c++11 -pthread -I $(includeprefix)
 
-LDFLAGS :=
-LDLIBS       :=
+LDFLAGS      +=
+LDLIBS       +=
 
 
 all: lib
