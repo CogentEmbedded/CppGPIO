@@ -6,17 +6,16 @@ HEADERINST   := $(DESTDIR)$(PREFIX)/include/cppgpio
 CHEADERINST  := $(DESTDIR)$(PREFIX)/include
 LIBINST      := $(DESTDIR)$(PREFIX)/lib
 
-LIBTOOL      := ar rucs
+LIBTOOL      := $(AR) rucs
 MKDIR        := mkdir -p
 CP           := cp
 CD           := cd
 CHOWN	     := chown
 CHMOD        := chmod
 LN           := ln -sf
-RM           := rm -f
-RMDIR        := rm -rf
+RM           := $(RM) -f
+RMDIR        := $(RM) -rf
 MAKE         := make
-LDCONFIG     := ldconfig
 
 sourceprefix := src
 includeprefix:= include
@@ -34,9 +33,9 @@ libnameso    := lib$(libname).so
 libnamesover := $(libnameso).1
 libnamesoverx:= $(libnameso).1.0.0
 
-CXXFLAGS     := -Wall -O2 -std=c++11 -pthread
-LDFLAGS      :=
-LDLIBS       := -lpthread -lcppgpio
+CXXFLAGS     += -Wall -O2 -std=c++11 -pthread
+LDFLAGS      +=
+LDLIBS       += -lpthread -lcppgpio
 
 SUBDIRS      := $(sourceprefix)
 
@@ -103,6 +102,5 @@ uninstall:
 	$(CD) $(LIBINST) && $(RM) $(libnamesoverx)
 	$(CD) $(LIBINST) && $(RM) $(libnamesover)
 	$(CD) $(LIBINST) && $(RM) $(libnameso)
-	$(LDCONFIG)
 
 -include .depend
