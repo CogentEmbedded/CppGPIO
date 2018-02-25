@@ -55,7 +55,7 @@ all: lib
 lib:
 	+@$(MAKE_SUBDIRS)
 	$(LIBTOOL) $(libnamea) $(OBJS)
-	$(CXX) -shared -Wl,-soname,$(libnameso) -o $(libnamesoverx) $(OBJS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -shared -Wl,-soname,$(libnameso) -o $(libnamesoverx) $(OBJS)
 
 $(appname): demo.o
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(appname) demo.o $(LDLIBS)
